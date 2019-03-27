@@ -1,5 +1,11 @@
 <?php
 
+/**
+ *
+ * Telegram bot for VMD
+ * @author Hleb Piatrou <hleb.piatrou@gmail.com>
+*/
+
 require_once 'curl.php';
 require_once 'vendor/autoload.php';
 
@@ -71,7 +77,7 @@ try {
             if ($value instanceof DateTime && $value <= $maxInterestedDate) {
                 $bot->sendMessage(
                     TELEGRAM_CHAT_ID,
-                    'Только что стала доступна следующая дата для резервации: ' . $value->format('d/m/Y') . '. Ссылка на сайт: https://www.epolicija.lt/rezervacija/index.php?id=3&lang=RU'
+                    'New free date is available: ' . $value->format('d/m/Y') . '. Website: https://www.epolicija.lt/rezervacija/index.php?id=3&lang=RU'
                 );
             }
         }
